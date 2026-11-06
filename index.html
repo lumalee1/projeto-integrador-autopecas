@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autopeças Digital</title>
+    <!-- Caminho para o CSS na pasta css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <span class="icon" style="font-size: 1.5rem;">⚙️</span>
+            <h1>Autopeças Digital</h1>
+        </header>
+
+        <!-- TELA 1: MENU -->
+        <div id="screen-home" class="screen active">
+            <p class="menu-title">O que você precisa consultar?</p>
+            <div class="btn-menu" onclick="abrirTela('screen-guia')">
+                <span class="icon">🔒</span>
+                <div class="btn-menu-text">Guia Rápido de LGPD<span>Proteção de dados</span></div>
+            </div>
+            <div class="btn-menu" onclick="abrirTela('screen-consultor')">
+                <span class="icon">♻️</span>
+                <div class="btn-menu-text">Consultor de Descarte<span>Lixo eletrônico</span></div>
+            </div>
+        </div>
+
+        <!-- TELA 2: GUIA LGPD -->
+        <div id="screen-guia" class="screen">
+            <button class="btn-back" onclick="abrirTela('screen-home')">← Voltar</button>
+            <div class="info-card">
+                <h3>👤 Dados de Clientes</h3>
+                <p>Colete apenas o necessário (Nome, CPF e Telefone). Nunca anote dados em papéis soltos.</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 WhatsApp Corporativo</h3>
+                <p>Use apenas o celular da loja. Apague fotos de cartões de crédito após digitar no sistema.</p>
+            </div>
+            <div class="info-card">
+                <h3>⚠️ Prevenção a Golpes (Pix)</h3>
+                <p>Confira se o nome do recebedor no comprovante é o CNPJ da loja. Cuidado com agendamentos.</p>
+            </div>
+        </div>
+
+        <!-- TELA 3: CONSULTOR -->
+        <div id="screen-consultor" class="screen">
+            <button class="btn-back" onclick="abrirTela('screen-home')">← Voltar</button>
+            <div class="form-group">
+                <label>Qual resíduo você precisa descartar?</label>
+                <select id="residuo" class="form-control">
+                    <option value="">-- Selecione --</option>
+                    <option value="bateria">Bateria Automotiva</option>
+                    <option value="pilhas">Pilhas e Baterias</option>
+                    <option value="cabos">Cabos e Periféricos</option>
+                    <option value="placas">Placas Eletrônicas</option>
+                </select>
+            </div>
+            <button class="btn-primary" onclick="consultarDescarte()">Consultar Destino</button>
+            <div id="resultado-descarte" class="result-box">
+                <h3>Destino Correto:</h3>
+                <p id="texto-resultado"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Caminho para o JS na pasta js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
