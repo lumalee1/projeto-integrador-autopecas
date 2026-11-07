@@ -1,217 +1,24 @@
-/* Reset básico */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body { 
+    background-color: #f4f6f9; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-body {
-    background-color: #f4f6f8;
-    color: #333;
-    /* Mobile First */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+.app-card { 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    background-color: #ffffff; 
 }
 
-/* Container principal simulando tela de celular */
-.app-container {
-    width: 100%;
-    max-width: 480px;
-    background-color: #ffffff;
-    min-height: 100vh;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    position: relative;
-    overflow-x: hidden;
+.header-bg { 
+    background-color: #1a2a3a; 
+    border-bottom: 4px solid #007bff; 
 }
 
-/* Cabeçalho */
-header {
-    background-color: #1a365d;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.badge-custom { 
+    background-color: #007bff; 
 }
 
-header h1 {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-/* Telas (Controle de visualização via JS) */
-.screen {
-    display: none;
-    padding: 20px;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.screen.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Menu Inicial */
-.menu-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #4a5568;
-    font-size: 1rem;
-}
-
-.btn-menu {
-    display: flex;
-    align-items: center;
-    background-color: #edf2f7;
-    border: 2px solid #cbd5e0;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: #2d3748;
-    font-weight: bold;
-    transition: transform 0.1s, background-color 0.2s;
-    /* Touch target ergonômico */
-    min-height: 64px;
-}
-
-.btn-menu:active {
-    transform: scale(0.98);
-    background-color: #e2e8f0;
-}
-
-.icon {
-    font-size: 2rem;
-    margin-right: 16px;
-}
-
-.btn-menu-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.btn-menu-text span {
-    font-size: 0.8rem;
-    font-weight: normal;
-    color: #718096;
-    margin-top: 4px;
-}
-
-/* Botão Voltar */
-.btn-back {
-    background: none;
-    border: none;
-    color: #3182ce;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 20px;
-    padding: 8px 0;
-    display: inline-block;
-}
-
-/* Cards de Informação (Guia LGPD) */
-.info-card {
-    background-color: #fff;
-    border-left: 6px solid #3182ce;
-    padding: 16px;
-    margin-bottom: 16px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.info-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: #2b6cb0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.info-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #4a5568;
-}
-
-/* Formulário Consultor de Descarte */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #2d3748;
-}
-
-.form-control {
-    width: 100%;
-    padding: 14px;
-    border: 2px solid #cbd5e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #fff;
-    appearance: none; /* Remove seta padrão no iOS */
-}
-
-.btn-primary {
-    width: 100%;
-    padding: 16px;
-    background-color: #38a169;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    min-height: 56px;
-}
-
-.btn-primary:active {
-    background-color: #2f855a;
-}
-
-/* Resultado do Consultor */
-.result-box {
-    display: none;
-    margin-top: 24px;
-    background-color: #f0fff4;
-    border: 2px solid #68d391;
-    border-radius: 8px;
-    padding: 20px;
-}
-
-.result-box.error {
-    background-color: #fff5f5;
-    border-color: #fc8181;
-    color: #c53030;
-}
-
-.result-box h3 {
-    color: #276749;
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-}
-
-.result-box p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #2f855a;
-}
-
-.result-box.error p {
-    color: #c53030;
+.nota-salva { 
+    background-color: #f8f9fa; 
+    border-left: 4px solid #28a745; 
 }

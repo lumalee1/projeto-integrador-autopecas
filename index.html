@@ -3,69 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autopeças Digital</title>
-    <!-- Caminho para o CSS na pasta css -->
+    <title>Autopeças Digital - Portal do Colaborador</title>
+    
+    <!-- Framework Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link para o seu CSS personalizado -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="app-container">
-        <header>
-            <span class="icon" style="font-size: 1.5rem;">⚙️</span>
-            <h1>Autopeças Digital</h1>
-        </header>
 
-        <!-- TELA 1: MENU -->
-        <div id="screen-home" class="screen active">
-            <p class="menu-title">O que você precisa consultar?</p>
-            <div class="btn-menu" onclick="abrirTela('screen-guia')">
-                <span class="icon">🔒</span>
-                <div class="btn-menu-text">Guia Rápido de LGPD<span>Proteção de dados</span></div>
-            </div>
-            <div class="btn-menu" onclick="abrirTela('screen-consultor')">
-                <span class="icon">♻️</span>
-                <div class="btn-menu-text">Consultor de Descarte<span>Lixo eletrônico</span></div>
-            </div>
+    <!-- Cabeçalho -->
+    <header class="header-bg text-white py-3 mb-4">
+        <div class="container text-center">
+            <h1 class="h4 mb-1">Autopeças Digital</h1>
+            <p class="small text-light mb-0">Portal de Apoio ao Balcão: LGPD, Notas e Descarte</p>
         </div>
+    </header>
 
-        <!-- TELA 2: GUIA LGPD -->
-        <div id="screen-guia" class="screen">
-            <button class="btn-back" onclick="abrirTela('screen-home')">← Voltar</button>
-            <div class="info-card">
-                <h3>👤 Dados de Clientes</h3>
-                <p>Colete apenas o necessário (Nome, CPF e Telefone). Nunca anote dados em papéis soltos.</p>
-            </div>
-            <div class="info-card">
-                <h3>📱 WhatsApp Corporativo</h3>
-                <p>Use apenas o celular da loja. Apague fotos de cartões de crédito após digitar no sistema.</p>
-            </div>
-            <div class="info-card">
-                <h3>⚠️ Prevenção a Golpes (Pix)</h3>
-                <p>Confira se o nome do recebedor no comprovante é o CNPJ da loja. Cuidado com agendamentos.</p>
-            </div>
+    <!-- Conteúdo Principal -->
+    <main class="container mb-5" style="max-width: 800px;">
+
+        <!-- Navegação por Abas -->
+        <ul class="nav nav-pills nav-fill mb-4 app-card p-2" id="mainTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold" id="busca-tab" data-bs-toggle="tab" data-bs-target="#busca" type="button" role="tab">🔍 Busca Rápida</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="notas-tab" data-bs-toggle="tab" data-bs-target="#notas" type="button" role="tab">📝 Ficha do Cliente</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="descarte-tab" data-bs-toggle="tab" data-bs-target="#descarte" type="button" role="tab">♻️ Guia de Descarte</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="mainTabsContent">
+
+            <!-- ABA 1: BUSCA RÁPIDA -->
+            <section class="tab-pane fade show active p-4 app-card" id="busca" role="tabpanel">
+                <h2 class="h5 mb-3 text-primary">Consulta Rápida por Palavra-Chave</h2>
+                <div class="mb-3">
+                    <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Digite um termo (ex: LGPD, Gravacao, Dinheiro, CPF)..." onkeyup="filtrarConteudo()">
+                </div>
+
+                <div id="conteudoBusca">
+                    <article class="card my-3 item-busca">
+                        <div class="card-body">
+                            <span class="badge badge-custom mb-2">LGPD / Atendimento</span>
+                            <h3 class="h6 card-title fw-bold">Aviso Obrigatório de Gravação de Chamada</h3>
+                            <p class="card-text">
+                                Ao iniciar chamadas gravadas, utilize a frase: 
+                                <strong>"Esta chamada poderá ser gravada para a sua e para a nossa segurança"</strong>. 
+                                Não utilize "vai ser gravada", pois o termo <em>"poderá"</em> atende à LGPD.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card my-3 item-busca">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Segurança de Caixa</span>
+                            <h3 class="h6 card-title fw-bold">Prevenção a Dinheiro Falso e Notas Suspeitas</h3>
+                            <p class="card-text">
+                                Nenhuma peça sai do balcão sem a confirmação de pagamento. Ao receber dinheiro, verifique os elementos de segurança antes de finalizar a venda.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card my-3 item-busca">
+                        <div class="card-body">
+                            <span class="badge badge-custom mb-2">LGPD / Dados</span>
+                            <h3 class="h6 card-title fw-bold">Coleta Segura de Dados do Cliente</h3>
+                            <p class="card-text">
+                                Solicite apenas dados essenciais. Não anote informações pessoais em papéis soltos no balcão. Utilize a aba "Ficha do Cliente" deste sistema.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ABA 2: FICHA DO CLIENTE -->
+            <section class="tab-pane fade p-4 app-card" id="notas" role="tabpanel">
+                <h2 class="h5 mb-3 text-primary">Preencher Nova Ficha</h2>
+                <form id="clientForm" onsubmit="salvarNota(event)">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="nomeCliente" class="form-label font-weight-bold">Nome do Cliente</label>
+                            <input type="text" class="form-control" id="nomeCliente" placeholder="Ex: João da Silva" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cpfCliente" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpfCliente" placeholder="000.000.000-00">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telCliente" class="form-label">Telefone / WhatsApp</label>
+                            <input type="text" class="form-control" id="telCliente" placeholder="(00) 90000-0000">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="carroCliente" class="form-label">Modelo e Ano do Carro</label>
+                            <input type="text" class="form-control" id="carroCliente" placeholder="Ex: Gol 1.0 2018">
+                        </div>
+                        <div class="col-12">
+                            <label for="obsCliente" class="form-label">Observações da Peça / Pedido</label>
+                            <textarea class="form-control" id="obsCliente" rows="2" placeholder="Descreva a peça ou o pedido..."></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-success btn-lg">💾 Salvar Ficha</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="mensagemSalvo" class="alert alert-success mt-4 d-none" role="alert">
+                    Ficha salva com sucesso!
+                </div>
+
+                <!-- Área onde as fichas salvas vão aparecer -->
+                <div id="areaFichasSalvas" class="mt-4">
+                    <h3 class="h6 text-secondary border-bottom pb-2">Fichas Registradas (Sessão Atual)</h3>
+                    <div id="listaFichas"></div>
+                </div>
+            </section>
+
+            <!-- ABA 3: CONSULTOR DE DESCARTE -->
+            <section class="tab-pane fade p-4 app-card" id="descarte" role="tabpanel">
+                <h2 class="h5 mb-3 text-success">Consultor de Destinação de Resíduos</h2>
+                <p class="text-muted">Selecione o resíduo para saber o destino e o procedimento ambiental correto:</p>
+                
+                <div class="mb-3">
+                    <select id="selectResiduo" class="form-select form-select-lg" onchange="consultarDestino()">
+                        <option value="" selected disabled>-- Selecione o item retirado ou acumulado --</option>
+                        <option value="baterias_velhas">Baterias Automotivas Velhas / Cascas</option>
+                        <option value="placas_eletronicas">Módulos e Placas Eletrônicas Guardadas</option>
+                        <option value="cabos_fios">Cabos, Fios e Periféricos de TI</option>
+                    </select>
+                </div>
+
+                <!-- Resultado do Descarte aparece aqui -->
+                <div id="resultadoDestino" class="alert alert-success mt-4 d-none shadow-sm" role="alert">
+                    <h3 class="h5 alert-heading fw-bold text-success" id="tituloDestino"></h3>
+                    <hr>
+                    <p class="mb-0 text-dark" id="descricaoDestino" style="font-size: 1.1rem;"></p>
+                </div>
+            </section>
+
         </div>
+    </main>
 
-        <!-- TELA 3: CONSULTOR -->
-        <div id="screen-consultor" class="screen">
-            <button class="btn-back" onclick="abrirTela('screen-home')">← Voltar</button>
-            <div class="form-group">
-                <label>Qual resíduo você precisa descartar?</label>
-                <select id="residuo" class="form-control">
-                    <option value="">-- Selecione --</option>
-                    <option value="bateria">Bateria Automotiva</option>
-                    <option value="pilhas">Pilhas e Baterias</option>
-                    <option value="cabos">Cabos e Periféricos</option>
-                    <option value="placas">Placas Eletrônicas</option>
-                </select>
-            </div>
-            <button class="btn-primary" onclick="consultarDescarte()">Consultar Destino</button>
-            <div id="resultado-descarte" class="result-box">
-                <h3>Destino Correto:</h3>
-                <p id="texto-resultado"></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Caminho para o JS na pasta js -->
+    <!-- Framework Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Link para o seu JS personalizado -->
     <script src="js/script.js"></script>
 </body>
 </html>
